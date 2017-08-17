@@ -1,0 +1,237 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-08-12T11:54:48-03:00
+
+====== Part 1 - Fixed-Size Data ======
+Created Saturday 12 August 2017
+
+
+
+====== 1 Arithmetic ======
+
+===== 1.1 The Arithmetic of Numbers =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-num%29|Link to The Arithmetic of Numbers.]]
+
+Integers, +, *, etc.
+
+SRC-FILE: [[../src-part1/01-arithmetic/ex01-defxy-coords.rkt|ex01-defxy-coords.rkt]]
+
+
+===== 1.2 The Arithmetic of Strings =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-str%29|Link to The Arithmetic of String.]]
+
+"I am a string". "red" consists of three [[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28tech._1string%29|1Strings]]: "r", "e" and "d".
+
+SRC-FILE: [[../src-part1/01-arithmetic/ex02-append-string.rkt|ex02-append-string.rkt]]
+
+===== 1.3 Mixing It Up =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-mix%29|Link to Mixing It Up.]]
+
+Functions:
+* ''string-length''
+* ''string-ith''
+* ''number->string''
+* ''string->number''
+* ''substring''
+
+	''(+ string-length "hello world") 20)''
+
+''string-length'' takes a string, but produces a number, that is why we can apply ''+'' to the return of the ''string-length'' operation.
+
+'''
+(+ (string-length (number->string 42)) 2)
+;; 4
+'''
+
+SRC-FILE: [[../src-part1/01-arithmetic/ex03-ins-str.rkt|ex03-ins-str.rkt]]
+SRC-FILE: [[../src-part1/01-arithmetic/ex04-del-str.rkt|ex04-del-str.rkt]]
+
+
+===== 1.4 The Arithmetic of Images =====
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-images%29|Link to The Arithmetic of Images]]
+
+require "2htdp/image"
+
+Images are primitives in Racket/BSL.
+
+Mode: "solid" or "outline".
+Color: "orange", "white", etc.
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-images%29|Help on 2htdp/image]]  and the [[http://docs.racket-lang.org/teachpack/2htdpimage-guide.html|teachpack 2htdp image guide]].
+
+Primitive image operations come in three flavors:
+1. creating basic shapes (cirle, line, star, etc.)
+2. know image properties (image-width, image-height, etc.)
+3. placing images one over another, using an //anchor point// (overlay, overlay/align, etc.)
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-i2%29%29|EXERCISE-5]], SRC-FILE: [[../src-part1/01-arithmetic/ex05-draw-basic-car.rkt|ex05-draw-basic-car.rkt]]
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-i1%29%29|EXERCISE-6]], SRC-FILE: [[../src-part1/01-arithmetic/ex06-count-img-pixels.rkt|ex06-count-img-pixels.rkt]]
+
+
+===== 1.5 The Arithmetic of Booleans =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aarith-bools%29|Link to The Arithmetic of Booleans]]
+
+* ''or''
+* ''and''
+* ''not''
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-b1%29%29|EXERCISE-07]], SRC-FILE: [[../src-part1/01-arithmetic/ex07-bools.rkt|ex07-bools.rkt]]
+
+===== 1.6 Mixing It Up with Booleans =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3aboolean-if%29|Link to Mixing It Up with Booleans]]
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-b2%29%29|EXERCISE-8]], SRC-FILE: [[../src-part1/01-arithmetic/ex08-img-tall.rkt|ex08-img-tall.rkt]]
+
+===== 1.7 Predicates:   Know Thy Data =====
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3apredicates%29|Link to Predicates:   Know Thy Data]]
+
+Use predicates like ''number?'' or ''string?'' to make sure a certain variable does contain the type of data you are expecting.
+
+'''
+(define myvar 42)
+(if (string? myvar)
+    (string-length myvar)
+    "Sorry, I was expecting a string...")
+'''
+
+
+* ''string?''
+* ''number?''
+* ''image?''
+* ''boolean?''
+* ''rational?''
+* ''inexact?''
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-p1%29%29|EXERCISE-9]], SRC-FILE: [[../src-part1/01-arithmetic/ex09-ifs-return-num.rkt|ex09-ifs-return-num.rkt]]
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._arith-p2%29%29|EXERCISE-10]], no coding involved...
+
+====== 2 Functions and Programs ======
+
+Link → [[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._ch~3afuncs-progs%29|2 Functions and Programs]]
+
+Algebra here means: variable, function definition, function application and function composition.
+
+
+===== 2.1 Functions =====
+
+Link → [[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3afuncs%29|2.1 Functions]]
+
+Functions consume input and produce output.
+1, 2, 3 argument functions: unary, binary, ternary.
+
+Variables aren't data; they //represent// data. The variables in a function's header are placeholders for unknown pieces of data.
+
+You define variables and functions and //apply// a function (invoke, call a function).
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun0%29%29|EXERCISE-11]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex11-dist-from-orig.rkt|ex11-dist-from-orig.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun1%29%29|EXERCISE-12]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex12-cvol-csurf.rkt|ex12-cvol-csurf.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun2%29%29|EXERCISE-13]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex13-string-first.rkt|ex13-string-first.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun3%29%29|EXERCISE-14]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex14-string-last.rkt|ex14-string-last.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun4%29%29|EXERCISE-15]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex15-bools-implication.rkt|ex15-bools-implication.rkt]]
+[[../src-part1/02-functions-and-programs/ex16-area-image.rkt|EXERCISE-16]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex16-area-image.rkt|ex16-area-image.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun10%29%29|EXERCISE-17]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex17-imgclassify.rkt|ex17-imgclassify.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun10a%29%29|EXERCISE-18]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex18-strjoin.rkt|ex18-strjoin.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun10b%29%29|EXERCISE-19]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex19-strinsert.rkt|ex19-strinsert.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._fun10c%29%29|EXERCISE-20]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex20-strdel.rkt|ex20-strdel.rkt]]
+
+
+===== 2.2 Computing =====
+
+Link → [[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28part._sec~3acomputing%29|2.2 Computing]]
+
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._ex~3astepper1%29%29|EXERCISE-21]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex21-stepper.rkt|ex21-stepper.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._dr-step0%29%29|EXERCISE-22]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex22-stepper.rkt|ex22-stepper.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._dr-step2%29%29|EXERCISE-23]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex23-stepper.rkt|ex23-stepper.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._dr-step4%29%29|EXERCISE-24]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex24-stepper.rkt|ex24-stepper.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._dr-step10%29%29|EXERCISE-25]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex25-stepper.rkt|ex25-stepper.rkt]]
+[[http://homedirs.ccs.neu.edu/matthias/HtDP2e/part_one.html#%28counter._%28exercise._dr-step10b%29%29|EXERCISE-26]], SRC-FILE: [[../src-part1/02-functions-and-programs/ex26-stepper.rkt|ex26-stepper.rkt]]
+
+2.3 Composing Functions
+
+2.4 Global Constants
+
+2.5 Programs
+
+
+
+====== 3 How to Design Programs ======
+
+3.1 Designing Functions
+
+3.2 Finger Exercises:   Functions
+
+3.3 Domain Knowledge
+
+3.4 From Functions to Programs
+
+3.5 On Testing
+
+3.6 Designing World Programs
+
+3.7 Virtual Pet Worlds
+
+
+
+====== 4 Intervals, Enumerations, and Itemizations ======
+
+4.1 Programming with Conditionals
+
+4.2 Computing Conditionally
+
+4.3 Enumerations
+
+4.4 Intervals
+
+4.5 Itemizations
+
+4.6 Designing with Itemizations
+
+4.7 Finite State Worlds
+
+
+
+====== 5 Adding Structure ======
+
+5.1 From Positions to posn Structures
+
+5.2 Computing with posns
+
+5.3 Programming with posn
+
+5.4 Defining Structure Types
+
+5.5 Computing with Structures
+
+5.6 Programming with Structures
+
+5.7 The Universe of Data
+
+5.8 Designing with Structures
+
+5.9 Structure in the World
+
+5.10 A Graphical Editor
+
+5.11 More Virtual Pets
+
+
+
+====== 6 Itemizations and Structures ======
+
+6.1 Designing with Itemizations, Again
+
+6.2 Mixing Up Worlds
+
+6.3 Input Errors
+
+6.4 Checking the World
+
+6.5 Equality Predicates
+
+
+
+====== 7 Summary ======
+

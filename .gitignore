@@ -1,0 +1,9 @@
+# gitignore
+
+# Backup files.
+*.rkt~
+
+# Temporary files that I do scratch work.
+devel*.rkt
+*.dr.rkt
+
